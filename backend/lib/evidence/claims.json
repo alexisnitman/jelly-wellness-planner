@@ -1,0 +1,787 @@
+{
+ "checked": "2026-10-16",
+ "note": "Every quote is copied word for word from the cited page. scripts/verify_evidence.py re-downloads each page and confirms the quote is still there. Add a claim only after reading the page; never paraphrase.",
+ "sources": {
+  "medlineplus": "MedlinePlus (U.S. National Library of Medicine, NIH)",
+  "nhs": "NHS (UK National Health Service)",
+  "nhlbi": "National Heart, Lung, and Blood Institute (NIH)",
+  "nimh": "National Institute of Mental Health (NIH)",
+  "nccih": "National Center for Complementary and Integrative Health (NIH)",
+  "harvard": "Harvard T.H. Chan School of Public Health, The Nutrition Source",
+  "who": "World Health Organization"
+ },
+ "claims": [
+  {
+   "id": "ex_energy",
+   "topic": "Exercise and energy",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "energy"
+   ],
+   "match": [],
+   "source": "medlineplus",
+   "url": "https://medlineplus.gov/benefitsofexercise.html",
+   "quote": "Exercise helps your heart and lungs work better, which can leave you feeling more energetic throughout the day.",
+   "related": []
+  },
+  {
+   "id": "ex_sleep",
+   "topic": "Exercise and sleep",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "sleep"
+   ],
+   "match": [],
+   "source": "medlineplus",
+   "url": "https://medlineplus.gov/benefitsofexercise.html",
+   "quote": "Exercise can help you fall asleep faster and stay asleep longer.",
+   "related": []
+  },
+  {
+   "id": "ex_mood_stress",
+   "topic": "Exercise, mood and stress",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "stress",
+    "mood"
+   ],
+   "match": [],
+   "source": "medlineplus",
+   "url": "https://medlineplus.gov/benefitsofexercise.html",
+   "quote": "During exercise, your body releases chemicals that can improve your mood and make you feel more relaxed. This can help you deal with stress, manage anxiety, and reduce your risk of depression.",
+   "related": []
+  },
+  {
+   "id": "ex_brain",
+   "topic": "Exercise and focus",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [],
+   "match": [],
+   "source": "medlineplus",
+   "url": "https://medlineplus.gov/benefitsofexercise.html",
+   "quote": "Exercise stimulates your body to release proteins and other chemicals that improve the structure and function of your brain.",
+   "related": [
+    "focus"
+   ]
+  },
+  {
+   "id": "ex_some_is_better",
+   "topic": "Short sessions count",
+   "kinds": [
+    "workout",
+    "wellness"
+   ],
+   "goals": [
+    "consistency"
+   ],
+   "match": [],
+   "source": "medlineplus",
+   "url": "https://medlineplus.gov/benefitsofexercise.html",
+   "quote": "Remember that some physical activity is better than none. Do what you can! Even 5 minutes of physical activity has real health benefits.",
+   "related": []
+  },
+  {
+   "id": "ex_150",
+   "topic": "Weekly activity guideline",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "fitness",
+    "consistency"
+   ],
+   "match": [],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/live-well/exercise/exercise-health-benefits/",
+   "quote": "adults should try to be active every day and aim to do at least 150 minutes of physical activity over a week, through a variety of activities.",
+   "related": []
+  },
+  {
+   "id": "ex_nhs_mood_energy",
+   "topic": "Activity, mood, sleep and energy",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "energy",
+    "sleep",
+    "stress",
+    "mood"
+   ],
+   "match": [],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/live-well/exercise/exercise-health-benefits/",
+   "quote": "Research also shows that physical activity can boost self-esteem, mood, sleep quality and energy, as well as reducing your risk of stress.",
+   "related": []
+  },
+  {
+   "id": "strength_muscle",
+   "topic": "Strength training and muscle",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "fitness"
+   ],
+   "match": [
+    "strength",
+    "weights",
+    "dumbbell",
+    "squat",
+    "lunge",
+    "resistance",
+    "bodyweight",
+    "push-up",
+    "deadlift",
+    "kettlebell",
+    "band",
+    "glute"
+   ],
+   "source": "medlineplus",
+   "url": "https://medlineplus.gov/benefitsofexercise.html",
+   "quote": "Doing muscle-strengthening activities can help you increase or maintain your muscle mass and strength.",
+   "related": []
+  },
+  {
+   "id": "strength_twice",
+   "topic": "How often to do strength work",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "fitness",
+    "consistency"
+   ],
+   "match": [
+    "strength",
+    "weights",
+    "dumbbell",
+    "squat",
+    "lunge",
+    "resistance",
+    "bodyweight",
+    "push-up",
+    "deadlift",
+    "kettlebell",
+    "band",
+    "glute"
+   ],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/live-well/exercise/strength-exercises/",
+   "quote": "Try to do these exercises at least twice a week and combine them with the other routines in this series:",
+   "related": []
+  },
+  {
+   "id": "aerobic_heart",
+   "topic": "Aerobic exercise",
+   "kinds": [
+    "workout"
+   ],
+   "goals": [
+    "fitness"
+   ],
+   "match": [
+    "run",
+    "jog",
+    "cycl",
+    "bike",
+    "swim",
+    "brisk",
+    "cardio",
+    "aerobic",
+    "hiit",
+    "row",
+    "walk",
+    "spin"
+   ],
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/heart-healthy-living/physical-activity",
+   "quote": "Aerobic exercise benefits your heart and lungs the most. This is any exercise in which your heart beats faster and you use more oxygen than usual, such as brisk walking, running, biking, and swimming.",
+   "related": []
+  },
+  {
+   "id": "yoga_wellness",
+   "topic": "Yoga and wellness",
+   "kinds": [
+    "workout",
+    "wellness"
+   ],
+   "goals": [
+    "stress",
+    "sleep"
+   ],
+   "match": [
+    "yoga"
+   ],
+   "source": "nccih",
+   "url": "https://www.nccih.nih.gov/health/yoga-effectiveness-and-safety",
+   "quote": "Studies have suggested possible benefits of yoga for several aspects of wellness, including stress management, mental/emotional health, promoting healthy eating/activity habits, sleep, and balance.",
+   "related": []
+  },
+  {
+   "id": "walk_30_mood",
+   "topic": "Walking and mood",
+   "kinds": [
+    "workout",
+    "wellness"
+   ],
+   "goals": [
+    "mood",
+    "consistency"
+   ],
+   "match": [
+    "walk"
+   ],
+   "source": "nimh",
+   "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health",
+   "quote": "Just 30 minutes of walking every day can boost your mood and improve your health. Small amounts of exercise add up, so don’t be discouraged if you can’t do 30 minutes at one time.",
+   "related": []
+  },
+  {
+   "id": "walk_10",
+   "topic": "Short walks",
+   "kinds": [
+    "workout",
+    "wellness"
+   ],
+   "goals": [
+    "consistency",
+    "fitness"
+   ],
+   "match": [
+    "walk"
+   ],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/live-well/exercise/walking-for-health/",
+   "quote": "A brisk 10-minute daily walk has lots of health benefits and counts towards your 150 minutes of weekly exercise",
+   "related": []
+  },
+  {
+   "id": "breathing_stress",
+   "topic": "Breathing exercises and stress",
+   "kinds": [
+    "wellness"
+   ],
+   "goals": [
+    "stress"
+   ],
+   "match": [
+    "breath"
+   ],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/",
+   "quote": "This calming breathing technique for stress, anxiety and panic takes just a few minutes and can be done anywhere.",
+   "related": []
+  },
+  {
+   "id": "relaxation_response",
+   "topic": "The relaxation response",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "stress"
+   ],
+   "match": [
+    "breath",
+    "meditat",
+    "relax",
+    "mindful"
+   ],
+   "source": "nccih",
+   "url": "https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know",
+   "quote": "Relaxation techniques are practices to help bring about the body’s “relaxation response,” which is characterized by slower breathing, lower blood pressure, and a reduced heart rate.",
+   "related": []
+  },
+  {
+   "id": "mindfulness",
+   "topic": "Meditation and mindfulness (under study)",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "stress"
+   ],
+   "match": [
+    "meditat",
+    "mindful"
+   ],
+   "source": "nccih",
+   "url": "https://www.nccih.nih.gov/health/meditation-and-mindfulness-effectiveness-and-safety",
+   "quote": "Meditation and mindfulness practices may have a variety of health benefits and may help people improve the quality of their lives. Recent studies have investigated if meditation or mindfulness helps people manage anxiety, stress, depression, pain, or symptoms related to withdrawal from nicotine, alcohol, or opioids.",
+   "related": []
+  },
+  {
+   "id": "self_care",
+   "topic": "Small acts of self-care",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "stress",
+    "energy"
+   ],
+   "match": [],
+   "source": "nimh",
+   "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health",
+   "quote": "This can help you manage stress, lower your risk of illness, and increase your energy. Even small acts of self-care in your daily life can have a big impact.",
+   "related": []
+  },
+  {
+   "id": "relaxing_activity",
+   "topic": "Scheduling relaxing activities",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "consistency"
+   ],
+   "match": [
+    "read",
+    "music",
+    "nature",
+    "outdoor",
+    "hobby",
+    "walk",
+    "fresh air",
+    "relax",
+    "screen-free"
+   ],
+   "source": "nimh",
+   "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health",
+   "quote": "Schedule regular times for these and other healthy activities you enjoy, such as listening to music, reading, spending time in nature, and engaging in low-stress hobbies.",
+   "related": []
+  },
+  {
+   "id": "sleep_same_time",
+   "topic": "Healthy sleep habits: a steady schedule",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "sleep",
+    "consistency"
+   ],
+   "match": [
+    "wind",
+    "bed",
+    "evening",
+    "sleep",
+    "routine",
+    "night"
+   ],
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+   "quote": "Go to bed and wake up at the same time every day.",
+   "related": []
+  },
+  {
+   "id": "sleep_hour_before",
+   "topic": "Healthy sleep habits: the hour before bed",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "sleep"
+   ],
+   "match": [
+    "wind",
+    "bed",
+    "evening",
+    "screen",
+    "quiet",
+    "night"
+   ],
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+   "quote": "Use the hour before bed for quiet time. Avoid intense exercise and bright artificial light, such as from a TV or computer screen.",
+   "related": []
+  },
+  {
+   "id": "blue_light",
+   "topic": "Screens before bed",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "sleep"
+   ],
+   "match": [
+    "screen",
+    "wind",
+    "bed",
+    "night"
+   ],
+   "source": "nimh",
+   "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health",
+   "quote": "Blue light from devices and screens can make it harder to fall asleep, so reduce blue light exposure from your phone or computer before bedtime.",
+   "related": []
+  },
+  {
+   "id": "sleep_busy",
+   "topic": "Making time to sleep",
+   "kinds": [
+    "wellness",
+    "rest"
+   ],
+   "goals": [
+    "sleep"
+   ],
+   "match": [
+    "wind",
+    "bed",
+    "sleep",
+    "nap",
+    "night"
+   ],
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+   "quote": "Sleep is often the first thing that busy people squeeze out of their schedules. Making time to sleep will help you protect your health and well-being now and in the future.",
+   "related": []
+  },
+  {
+   "id": "outside_daily",
+   "topic": "Healthy sleep habits: time outside",
+   "kinds": [
+    "wellness",
+    "workout"
+   ],
+   "goals": [
+    "sleep"
+   ],
+   "match": [
+    "walk",
+    "outside",
+    "outdoor",
+    "fresh air",
+    "nature",
+    "hike"
+   ],
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+   "quote": "Spend time outside every day (when possible) and be physically active.",
+   "related": [
+    "energy"
+   ]
+  },
+  {
+   "id": "nap_20",
+   "topic": "Short naps and alertness",
+   "kinds": [
+    "rest",
+    "wellness"
+   ],
+   "goals": [
+    "focus"
+   ],
+   "match": [
+    "nap"
+   ],
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+   "quote": "Napping during the day may boost your alertness and performance.",
+   "related": []
+  },
+  {
+   "id": "stay_connected",
+   "topic": "Staying connected",
+   "kinds": [
+    "social"
+   ],
+   "goals": [
+    "connection"
+   ],
+   "match": [],
+   "source": "nimh",
+   "url": "https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health",
+   "quote": "Reach out to friends or family members who can provide emotional support and practical help.",
+   "related": []
+  },
+  {
+   "id": "good_relationships",
+   "topic": "Good relationships",
+   "kinds": [
+    "social"
+   ],
+   "goals": [
+    "connection",
+    "mood"
+   ],
+   "match": [],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/",
+   "quote": "Good relationships are important for your mental wellbeing.",
+   "related": []
+  },
+  {
+   "id": "family_dinner",
+   "topic": "Shared meals",
+   "kinds": [
+    "social",
+    "cooking"
+   ],
+   "goals": [
+    "connection",
+    "mood"
+   ],
+   "match": [
+    "family",
+    "friend",
+    "together",
+    "dinner with",
+    "meal with"
+   ],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/",
+   "quote": "if possible, take time each day to be with your family – for example, try arranging a fixed time to eat dinner together",
+   "related": []
+  },
+  {
+   "id": "regular_meals_stress",
+   "topic": "Managing stress: healthy, regular meals",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [
+    "stress"
+   ],
+   "match": [],
+   "source": "nimh",
+   "url": "https://www.nimh.nih.gov/health/publications/so-stressed-out-fact-sheet",
+   "quote": "Exercise, and make sure you are eating healthy, regular meals.",
+   "related": []
+  },
+  {
+   "id": "whole_grain_steady",
+   "topic": "Whole grains and steady blood sugar",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [],
+   "ingredients": [
+    "oat",
+    "brown rice",
+    "quinoa",
+    "whole wheat",
+    "wholewheat",
+    "whole-wheat",
+    "whole grain",
+    "whole-grain",
+    "wholegrain",
+    "wholemeal",
+    "barley",
+    "farro",
+    "bulgur",
+    "buckwheat",
+    "whole-grain"
+   ],
+   "source": "harvard",
+   "url": "https://www.hsph.harvard.edu/nutritionsource/what-should-you-eat/whole-grains/",
+   "quote": "Bran and fiber slow the breakdown of starch into glucose—thus maintaining a steady blood sugar rather than causing sharp spikes.",
+   "related": [
+    "energy",
+    "focus"
+   ]
+  },
+  {
+   "id": "wholegrain_full",
+   "topic": "Wholegrain starchy foods",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [],
+   "ingredients": [
+    "oat",
+    "brown rice",
+    "quinoa",
+    "whole wheat",
+    "wholewheat",
+    "whole-wheat",
+    "whole grain",
+    "whole-grain",
+    "wholegrain",
+    "wholemeal",
+    "barley",
+    "farro",
+    "bulgur",
+    "buckwheat"
+   ],
+   "source": "nhs",
+   "url": "https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eight-tips-for-healthy-eating/",
+   "quote": "They contain more fibre than white or refined starchy carbohydrates and can help you feel full for longer.",
+   "related": []
+  },
+  {
+   "id": "veg_fruit_variety",
+   "topic": "Vegetables and fruit",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [],
+   "ingredients": [
+    "spinach",
+    "kale",
+    "broccoli",
+    "pepper",
+    "tomato",
+    "carrot",
+    "zucchini",
+    "courgette",
+    "cauliflower",
+    "cabbage",
+    "lettuce",
+    "greens",
+    "beet",
+    "squash",
+    "eggplant",
+    "aubergine",
+    "mushroom",
+    "asparagus",
+    "pea",
+    "bean",
+    "lentil",
+    "chickpea",
+    "berry",
+    "berries",
+    "apple",
+    "orange",
+    "banana",
+    "cucumber",
+    "celery"
+   ],
+   "min_ingredient_hits": 2,
+   "source": "harvard",
+   "url": "https://www.hsph.harvard.edu/nutritionsource/vegetables-and-fruits/",
+   "quote": "Vegetables and fruits are an important part of a healthy diet, and variety is as important as quantity.",
+   "related": []
+  },
+  {
+   "id": "five_a_day",
+   "topic": "Five portions a day",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [],
+   "ingredients": [
+    "spinach",
+    "kale",
+    "broccoli",
+    "pepper",
+    "tomato",
+    "carrot",
+    "zucchini",
+    "courgette",
+    "cauliflower",
+    "cabbage",
+    "lettuce",
+    "greens",
+    "beet",
+    "squash",
+    "eggplant",
+    "aubergine",
+    "mushroom",
+    "asparagus",
+    "pea",
+    "bean",
+    "lentil",
+    "chickpea",
+    "berry",
+    "berries",
+    "apple",
+    "orange",
+    "banana",
+    "cucumber",
+    "celery"
+   ],
+   "min_ingredient_hits": 2,
+   "source": "nhs",
+   "url": "https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/eight-tips-for-healthy-eating/",
+   "quote": "It's recommended that you eat at least 5 portions of a variety of fruit and veg every day.",
+   "related": []
+  },
+  {
+   "id": "fish_omega3",
+   "topic": "Fish and omega-3 fats",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [],
+   "ingredients": [
+    "salmon",
+    "mackerel",
+    "sardine",
+    "herring",
+    "tuna",
+    "trout",
+    "anchov"
+   ],
+   "source": "harvard",
+   "url": "https://www.hsph.harvard.edu/nutritionsource/omega-3-fats/",
+   "quote": "it is important to eat fish or other seafood 1-2 times a week, particularly fatty (dark meat) fish that is richer in EPA and DHA.",
+   "related": []
+  },
+  {
+   "id": "protein_body",
+   "topic": "Protein",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [],
+   "ingredients": [
+    "chicken",
+    "egg",
+    "tofu",
+    "tempeh",
+    "lentil",
+    "bean",
+    "chickpea",
+    "salmon",
+    "yogurt",
+    "yoghurt",
+    "turkey",
+    "beef",
+    "fish",
+    "shrimp",
+    "cottage cheese",
+    "edamame"
+   ],
+   "source": "harvard",
+   "url": "https://www.hsph.harvard.edu/nutritionsource/protein/",
+   "quote": "Protein is found throughout the body—in muscle, bone, skin, hair, and virtually every other body part or tissue.",
+   "related": [
+    "fitness"
+   ]
+  },
+  {
+   "id": "light_dinner_bed",
+   "topic": "Healthy sleep habits: late, heavy meals",
+   "kinds": [
+    "cooking"
+   ],
+   "goals": [
+    "sleep"
+   ],
+   "match": [],
+   "min_end": "20:00",
+   "source": "nhlbi",
+   "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+   "quote": "Avoid heavy or large meals within a few hours of bedtime. (Having a light snack is okay.)",
+   "related": []
+  }
+ ]
+}
