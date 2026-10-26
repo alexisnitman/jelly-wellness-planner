@@ -45,7 +45,7 @@ export default function App() {
     <div className={`app${user && profileReady && tab === 'plan' ? ' wide' : ''}`}>
       <header>
         <div className="top">
-          <h1><Logo /> Week Planner</h1>
+          <h1><Logo /> Jelly Wellness Planner</h1>
           {user && <button onClick={logout}>Log out</button>}
         </div>
         <p className="slogan">Go with the flow: healthy habits, made easy.</p>

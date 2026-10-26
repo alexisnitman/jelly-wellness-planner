@@ -34,7 +34,7 @@ class IcsFile(unittest.TestCase):
     def test_file_is_a_valid_calendar_with_one_event_per_item(self):
         cal, events = parse(ics.build_ics([item(), item("Dinner", "cooking", start="18:00", end="19:00")], NY))
         self.assertEqual(len(events), 2)
-        self.assertEqual(str(cal["VERSION"]), "2.0"); self.assertIn("Week Planner", str(cal["PRODID"]))
+        self.assertEqual(str(cal["VERSION"]), "2.0"); self.assertIn("Jelly Wellness Planner", str(cal["PRODID"]))
         e = events[0]
         self.assertEqual(str(e["SUMMARY"]), "Strength"); self.assertEqual(e.start, datetime(2026, 10, 19, 7, 30, tzinfo=NY)); self.assertEqual(e.end, datetime(2026, 10, 19, 8, 15, tzinfo=NY))
 

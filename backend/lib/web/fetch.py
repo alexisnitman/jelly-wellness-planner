@@ -110,7 +110,7 @@ async def fetch_page_text(url: str, state: FetchState) -> str:
     original = url.strip()
     current = original
     try:
-        async with httpx.AsyncClient(timeout=TIMEOUT, follow_redirects=False, headers={"User-Agent": "WeekPlanner/0.1 (personal use)"}) as client:
+        async with httpx.AsyncClient(timeout=TIMEOUT, follow_redirects=False, headers={"User-Agent": "JellyWellnessPlanner/0.1 (personal use)"}) as client:
             for _ in range(MAX_REDIRECTS + 1):
                 p = urlparse(current)
                 if p.scheme not in ("http", "https") or not p.hostname or not public_host(p.hostname):

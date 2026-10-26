@@ -1,4 +1,4 @@
-# Week Planner: frontend
+# Jelly Wellness Planner: frontend
 
 React + Vite + TypeScript. See the [project README](../README.md) for how to run everything.
 

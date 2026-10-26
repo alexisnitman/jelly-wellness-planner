@@ -1,4 +1,4 @@
-# Week Planner
+# Jelly Wellness Planner
 
 A personal-use web app that helps busy students and working professionals build a weekly routine for **wellness and health**.
 You describe your week with a few cascading choices, the app reads your calendar (read-only), finds your free time, and proposes a

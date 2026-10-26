@@ -1,9 +1,9 @@
-# Week Planner: Working Design Document
+# Jelly Wellness Planner: Working Design Document
 
 *Status: draft, revision 14. Last updated: October 16, 2026.*
 
 ## 1. Vision
-Week Planner promotes a sustainable **routine, wellness and health** for **busy students and people with demanding
+Jelly Wellness Planner promotes a sustainable **routine, wellness and health** for **busy students and people with demanding
 corporate jobs**. They have little free time, fixed commitments and a lot of stress; the app finds the real gaps in
 their calendar and fills them with a plan they can actually keep: movement, home cooking, rest, connection and small
 wellness habits.
@@ -144,3 +144,4 @@ Backend SQLite (git-ignored): `users` (name, email, username, argon2id hash), `s
 - Rev 22 (Oct 25, 2026): fixes: a changed NHS quote corrected (35 of 35 verified); the calendar opens on next week when 2 or fewer days remain; class, restaurant and movie results moved from memory to a `search_cache` table so export survives a restart; email setup script and .env template.
 - Rev 23 (Oct 25, 2026): removed the weekly reminder email feature entirely (code, settings, table and docs); the app sends no email.
 - Rev 24 (Oct 25, 2026): forgotten password: enter your email, get a one-time 30-minute reset link (local mode: printed in the backend terminal, no email), set a new password, signed out everywhere.
+- Rev 25 (Oct 26, 2026): the app is renamed from Week Planner to Jelly Wellness Planner (page title and header, API title, calendar file name and id, prompts, docs, README).

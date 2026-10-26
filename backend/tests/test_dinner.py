@@ -30,7 +30,8 @@ def at(day_offset, h, m=0):
 
 
 FREE = [(at(i, 7), at(i, 22)) for i in range(7)]
-PAGE = {fetch.norm_url(URL): "Pepe's Pizzeria. Open tables: Tuesday Oct 20 at 7:00 PM, 7:30 PM. Wednesday 5:00 PM."}
+NAMES = " ".join(["Has Link", "No Link", "Takes Bookings No Link", "Aaa Cafe", "Zed Grill", "Unproven", "Vague", "No Quote"] + [f"Place {i}" for i in range(9)])
+PAGE = {fetch.norm_url(URL): "Pepe's Pizzeria. Open tables: Tuesday Oct 20 at 7:00 PM, 7:30 PM. Wednesday 5:00 PM. Also on this page: " + NAMES}
 
 
 def found(**kw):
@@ -71,7 +72,7 @@ class Verification(unittest.TestCase):
         self.assertEqual(out[0]["slots"], [])
         out, _ = verify([found(slots=[ra.Slot(on_date=date(2026, 10, 21), time="17:00")])])  # 5:00 PM is on the page for Wednesday
         self.assertEqual(len(out[0]["slots"]), 1)
-        out, _ = verify([found(slots=[ra.Slot(on_date=date(2026, 10, 21), time="22:00")])], fetched={fetch.norm_url(URL): "late table 10:00 PM"})
+        out, _ = verify([found(slots=[ra.Slot(on_date=date(2026, 10, 21), time="22:00")])], fetched={fetch.norm_url(URL): "Pepe's Pizzeria late table 10:00 PM"})
         self.assertEqual(out[0]["slots"], [])  # too late for dinner
 
     def test_restaurants_with_times_come_first_and_text_is_cleaned(self):
@@ -93,6 +94,19 @@ def item(**kw):
 
 def check(items, venues):
     return validate.validate_items(items, FREE, MON, 7, time(7), time(22), NY, "", None, None, {v["id"]: v for v in venues})
+
+
+class NameCheck(unittest.TestCase):
+    def test_a_restaurant_must_be_named_on_the_page_it_was_read_from(self):
+        out, c = verify([found(name="Evil Diner")])
+        self.assertEqual(out, []); self.assertEqual(c["unverified"], 1)
+
+    def test_curly_apostrophes_punctuation_and_long_names_still_match(self):
+        self.assertTrue(ra.name_on_page("Pepe\u2019s Pizzeria", "Welcome to Pepe's Pizzeria"))
+        self.assertTrue(ra.name_on_page("Frank Pepe's Pizzeria Napoletana \u2014 New Haven", "Frank Pepe's is a New Haven classic"))
+        self.assertTrue(ra.name_on_page("Sally's Apizza", "SALLY'S APIZZA - since 1938"))
+        self.assertFalse(ra.name_on_page("Totally Different Place", "Pepe's Pizzeria"))
+        self.assertFalse(ra.name_on_page("", "anything")); self.assertFalse(ra.name_on_page("Bar", "a bar downtown"))  # a short one-word name proves nothing
 
 
 class Styles(unittest.TestCase):
@@ -142,7 +156,7 @@ class Styles(unittest.TestCase):
 
 class Meals(unittest.TestCase):
     def test_each_meal_has_its_own_hours_for_read_times(self):
-        page = {fetch.norm_url(URL): "Tables: Tuesday 8:30 AM, 12:00 PM and 7:00 PM"}
+        page = {fetch.norm_url(URL): "Pepe's Pizzeria. Tables: Tuesday 8:30 AM, 12:00 PM and 7:00 PM"}
         for meal, ok_time, bad_time in (("breakfast", "08:30", "19:00"), ("lunch", "12:00", "08:30"), ("dinner", "19:00", "12:00")):
             slots = [ra.Slot(on_date=date(2026, 10, 20), time=t) for t in ("08:30", "12:00", "19:00")]
             out, _ = ra.verify_restaurants([found(slots=slots)], page, MON, 7, NY, FREE, None, "reservation", meal)

@@ -50,7 +50,7 @@ def host_of(url: str) -> str:
 async def fetch_calendar_text(url: str) -> str:
     current = normalize_link(url)
     try:
-        async with httpx.AsyncClient(timeout=TIMEOUT, follow_redirects=False, headers={"User-Agent": "WeekPlanner/0.1 (personal use)"}) as client:
+        async with httpx.AsyncClient(timeout=TIMEOUT, follow_redirects=False, headers={"User-Agent": "JellyWellnessPlanner/0.1 (personal use)"}) as client:
             for _ in range(MAX_REDIRECTS + 1):
                 p = urlparse(current)
                 if p.scheme != "https" or not p.hostname or not public_host(p.hostname):

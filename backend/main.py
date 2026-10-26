@@ -1,4 +1,4 @@
-"""Week Planner API (phase 1 scaffold).
+"""Jelly Wellness Planner API (phase 1 scaffold).
 
 Run from this folder:  ../.venv/bin/uvicorn main:app --reload --port 8000
 
@@ -31,7 +31,7 @@ ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5200,http://127
 store.init()
 
 
-app = FastAPI(title="Week Planner API", version="0.2.0")
+app = FastAPI(title="Jelly Wellness Planner API", version="0.2.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,

@@ -6,7 +6,7 @@ Same approach as the class and restaurant finders: the model reads pages and rep
   - a showtime is kept only if that time appears in the page text, the date is in the week, not in the past, and the
     movie (assumed 150 minutes, trailers included) fits inside one of the user's free windows,
   - a streaming service (home) or theater (cinema) name is kept only if it appears in the page text.
-Week Planner never buys tickets and never says seats or a stream are available beyond what a page showed.
+Jelly Wellness Planner never buys tickets and never says seats or a stream are available beyond what a page showed.
 
 What the model sees: the city, whether the user wants a theater or home, the genres, and the week's dates. NOT the
 calendar, free time, notes, name or email.

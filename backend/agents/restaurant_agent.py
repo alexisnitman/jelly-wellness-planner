@@ -4,7 +4,7 @@ Same approach as the class finder: the model reads pages and reports; CODE decid
   - a restaurant is kept only if its source_url is a page that fetch_page actually downloaded in this run,
   - a reservation time (slot) is kept only if that time appears in the text of the page we received, the date is in
     the week, not in the past, and the dinner fits inside one of the user's free windows,
-  - the booking link is shown to the user as a link only. Week Planner never books anything and never claims a
+  - the booking link is shown to the user as a link only. Jelly Wellness Planner never books anything and never claims a
     table is free unless a slot was read from a page.
 Most booking widgets are drawn by scripts, so often no slot can be read; the restaurant is then a suggestion with a
 link to check availability, and the plan says so plainly.
@@ -79,6 +79,19 @@ async def fetch_page(ctx: RunContext[FetchState], url: str) -> str:
     return await fetch_page_text(url, ctx.deps)
 
 
+def _plain(v: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", "", (v or "").lower().replace("\u2019", "'").replace("'", ""))).strip()
+
+
+def name_on_page(name: str, page: str) -> bool:
+    """The restaurant's name (or its first two words, for long names like "Frank Pepe's Pizzeria Napoletana - New Haven") must be in the page text."""
+    words = _plain(name).split()
+    text = _plain(page)
+    if not words or (len(words) == 1 and len(words[0]) < 4):
+        return False  # a very short one-word name proves nothing
+    return " ".join(words) in text or (len(words) >= 2 and " ".join(words[:2]) in text)
+
+
 def verify_restaurants(
     found: list[FoundRestaurant],
     fetched: dict[str, str],
@@ -99,7 +112,7 @@ def verify_restaurants(
     for r in found[:12]:
         url = _http(r.source_url)
         name = clean_line(r.name, 80)
-        if not name or not url or norm_url(url) not in fetched or name.lower() in seen:
+        if not name or not url or norm_url(url) not in fetched or name.lower() in seen or not name_on_page(name, fetched[norm_url(url)]):
             counts["unverified"] += 1  # not on a page we really downloaded: not evidence
             continue
         quote = re.sub(r"\s+", " ", (r.walk_in_quote or "")).strip().lower()

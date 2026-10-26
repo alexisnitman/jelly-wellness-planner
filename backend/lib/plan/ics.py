@@ -15,7 +15,7 @@ import icalendar
 
 from lib.analysis_text import clean_line, scrub
 
-DISCLAIMER = "Planned with Week Planner. Workout and meal ideas are general suggestions, not medical advice."
+DISCLAIMER = "Planned with Jelly Wellness Planner. Workout and meal ideas are general suggestions, not medical advice."
 CATEGORY = {"workout": "Workout", "cooking": "Cooking", "social": "Friends", "errand": "Errand", "rest": "Rest", "wellness": "Wellness", "other": "Plan"}
 
 
@@ -39,11 +39,11 @@ def _description(item: dict) -> str:
         if vi.get("address"):
             lines.append("Address: " + clean_line(vi["address"], 120))
         walk = vi.get("style") == "walk_in"
-        lines.append("Walk-in: no booking site was found for this place, so nothing was booked. It may still take bookings; opening hours and waits were not checked, so look at their page or call before you go." if walk else "A table is NOT booked by Week Planner. " + ("This time was listed on the page below when it was read; it may be gone, so book it yourself." if vi.get("availability") == "read" else "Availability was not confirmed; check it and book it yourself."))
+        lines.append("Walk-in: no booking site was found for this place, so nothing was booked. It may still take bookings; opening hours and waits were not checked, so look at their page or call before you go." if walk else "A table is NOT booked by Jelly Wellness Planner. " + ("This time was listed on the page below when it was read; it may be gone, so book it yourself." if vi.get("availability") == "read" else "Availability was not confirmed; check it and book it yourself."))
         lines.append("Page read: " + vi["url"][:300])
         if vi.get("reservation_url"):
             lines.append("Check availability and book: " + vi["reservation_url"][:300])
-        lines.append("Tell the restaurant about any allergies or diet needs; Week Planner can't tell whether any dish is safe.")
+        lines.append("Tell the restaurant about any allergies or diet needs; Jelly Wellness Planner can't tell whether any dish is safe.")
     mi = item.get("movie_info")
     if mi:
         title = clean_line(mi["title"], 100) + (f" ({mi['year']})" if mi.get("year") else "")
@@ -53,7 +53,7 @@ def _description(item: dict) -> str:
         elif mi.get("where_kind") != "theater":
             lines.append("Where to watch: not confirmed; check your streaming services or a rental store.")
         if mi.get("where_kind") == "theater":
-            lines.append("Week Planner buys no tickets. " + ("This showtime was listed on the page below when it was read; showtimes change, so confirm and buy tickets yourself." if mi.get("availability") == "read" else "Showtimes were not confirmed; check the theater's site and buy tickets yourself."))
+            lines.append("Jelly Wellness Planner buys no tickets. " + ("This showtime was listed on the page below when it was read; showtimes change, so confirm and buy tickets yourself." if mi.get("availability") == "read" else "Showtimes were not confirmed; check the theater's site and buy tickets yourself."))
         lines.append("Page read: " + mi["url"][:300])
         if mi.get("watch_url"):
             lines.append(("Showtimes and tickets: " if mi.get("where_kind") == "theater" else "Watch: ") + mi["watch_url"][:300])
@@ -80,17 +80,17 @@ def _description(item: dict) -> str:
 def build_ics(items: list[dict], tz: tzinfo) -> bytes:
     """items: validated dicts with title, kind, day (date), start/end "HH:MM", why, notes, recipe, workout."""
     cal = icalendar.Calendar()
-    cal.add("prodid", "-//Week Planner//Personal plan//EN")
+    cal.add("prodid", "-//Jelly Wellness Planner//Personal plan//EN")
     cal.add("version", "2.0")
     cal.add("calscale", "GREGORIAN")
-    cal.add("x-wr-calname", "Week Planner")
+    cal.add("x-wr-calname", "Jelly Wellness Planner")
     stamp = datetime.now(timezone.utc)
     for it in items:
         d: date = it["day"]
         sh, sm = map(int, it["start"].split(":"))
         eh, em = map(int, it["end"].split(":"))
         ev = icalendar.Event()
-        ev.add("uid", f"{uuid.uuid4()}@weekplanner.local")
+        ev.add("uid", f"{uuid.uuid4()}@jellywellness.local")
         ev.add("dtstamp", stamp)
         ev.add("dtstart", datetime(d.year, d.month, d.day, sh, sm, tzinfo=tz))
         ev.add("dtend", datetime(d.year, d.month, d.day, eh, em, tzinfo=tz))

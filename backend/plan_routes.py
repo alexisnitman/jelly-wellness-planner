@@ -184,7 +184,7 @@ class VenueInfoOut(BaseModel):
     address: str = ""
     price: str = ""
     url: str  # the page the restaurant was read from
-    reservation_url: str = ""  # where the user checks availability and books (Week Planner never books)
+    reservation_url: str = ""  # where the user checks availability and books (Jelly Wellness Planner never books)
     style: Literal["reservation", "walk_in"] = "reservation"
     meal: Literal["breakfast", "brunch", "lunch", "dinner"] = "dinner"
     availability: Literal["read", "unconfirmed"]  # "read" = this time was listed on the page when it was read
