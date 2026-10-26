@@ -146,3 +146,4 @@ Backend SQLite (git-ignored): `users` (name, email, username, argon2id hash), `s
 - Rev 24 (Oct 25, 2026): forgotten password: enter your email, get a one-time 30-minute reset link (local mode: printed in the backend terminal, no email), set a new password, signed out everywhere.
 - Rev 25 (Oct 26, 2026): the app is renamed from Week Planner to Jelly Wellness Planner (page title and header, API title, calendar file name and id, prompts, docs, README).
 - Rev 26 (Oct 26, 2026): README rewritten as step-by-step grader instructions; throwaway demo account script (`backend/scripts/create_demo_account.py`) and a sample calendar (`docs/sample-calendar.ics`, repeats weekly so it works for any week).
+- Rev 27 (Oct 26, 2026): the API key is read from a .env in the repo folder, then the folder above it; an empty value (such as a blank line copied from .env.example) never hides a real key. README states how the teaching staff's shared .env is picked up.

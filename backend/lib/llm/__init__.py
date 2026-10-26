@@ -20,7 +20,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Sequence
 
-from dotenv import load_dotenv
+from dotenv import dotenv_values
 from openai import APIConnectionError, APITimeoutError, AsyncOpenAI
 from pydantic_ai import Agent, UsageLimitExceeded, UsageLimits
 from pydantic_ai.models.openai import OpenAIResponsesModel
@@ -30,9 +30,20 @@ import store
 
 os.environ.setdefault("PYDANTIC_AI_NO_BANNER", "1")
 _here = Path(__file__).resolve()
-for folder in _here.parents[2:]:  # project folder first, then every parent (the class-wide .env holds the key)
-    if (folder / ".env").exists():
-        load_dotenv(folder / ".env", override=False)
+
+
+def load_env_files(folders) -> None:
+    """Read .env files from the given folders, nearest first. The nearest NON-EMPTY value wins, and a variable that is already
+    set is never replaced, so a blank line copied from .env.example never hides a real key kept in a folder above."""
+    for folder in folders:
+        env = Path(folder) / ".env"
+        if env.exists():
+            for key, value in dotenv_values(env).items():
+                if value and not os.environ.get(key):
+                    os.environ[key] = value
+
+
+load_env_files(_here.parents[2:])  # this project's folder first, then every folder above it (a shared .env one level up works too)
 
 log = logging.getLogger("llm")
 

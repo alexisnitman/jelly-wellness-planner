@@ -70,3 +70,41 @@ class GatewayRules(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class EnvFiles(unittest.TestCase):
+    """The key is found in the repo's folder first, then in the folder above it; blanks never hide a real key."""
+
+    def run_loader(self, repo_env, parent_env, start=None):
+        import os
+        import tempfile
+        from pathlib import Path
+        from unittest import mock
+
+        from lib import llm
+
+        with tempfile.TemporaryDirectory() as d:
+            repo = Path(d) / "repo"
+            repo.mkdir()
+            if repo_env is not None:
+                (repo / ".env").write_text(repo_env)
+            if parent_env is not None:
+                (Path(d) / ".env").write_text(parent_env)
+            with mock.patch.dict(os.environ, {}, clear=False):
+                os.environ.pop("PORTKEY_API_KEY", None)
+                if start:
+                    os.environ["PORTKEY_API_KEY"] = start
+                llm.load_env_files([repo, Path(d)])
+                return os.environ.get("PORTKEY_API_KEY")
+
+    def test_a_shared_env_one_level_above_the_repo_is_found(self):
+        self.assertEqual(self.run_loader(None, "PORTKEY_API_KEY=parent-key\nOPENAI_API_KEY=x\n"), "parent-key")
+
+    def test_the_repos_own_env_wins_when_both_have_a_key(self):
+        self.assertEqual(self.run_loader("PORTKEY_API_KEY=repo-key\n", "PORTKEY_API_KEY=parent-key\n"), "repo-key")
+
+    def test_a_blank_key_copied_from_the_example_does_not_hide_the_real_one(self):
+        self.assertEqual(self.run_loader("PORTKEY_API_KEY=\nAI_ENABLED=true\n", "PORTKEY_API_KEY=parent-key\n"), "parent-key")
+
+    def test_an_already_set_variable_is_not_replaced(self):
+        self.assertEqual(self.run_loader("PORTKEY_API_KEY=repo-key\n", None, start="from-the-shell"), "from-the-shell")

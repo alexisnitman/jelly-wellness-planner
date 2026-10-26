@@ -1,5 +1,8 @@
 # Jelly Wellness Planner
 
+**App link:** not online. It is meant to be run **locally from a fresh clone** using the steps below (about 10 minutes).
+**Report and code:** this repository.
+
 A personal-use web app that helps busy students and working professionals build a weekly routine for **wellness and health**.
 You describe your week with a few cascading choices, the app reads your calendar (read-only), finds your free time, and proposes a
 plan: workouts, home-cooked meals, real fitness classes, meals out, movie nights and small wellness habits. You review and approve
@@ -15,12 +18,18 @@ the plan, and the app exports an `.ics` file that you import into your own calen
 
 ## Try it (for graders)
 
-The app runs on **your own computer** (it is not hosted online). Setup takes about 10 minutes. You need:
+The app runs on **your own computer** (it is not hosted online). Setup takes about 10 minutes.
+
+> **Teaching staff, your API key:** the app reads `PORTKEY_API_KEY` from a `.env` file, first in this repo's folder and then in the folder
+> **above** it, so your usual `submissions/.env` is picked up automatically and you can skip step 2's key edit. (It uses `PORTKEY_API_KEY`
+> only; `OPENAI_API_KEY` is not needed.)
+
+You need:
 
 - **Python 3.12 or newer** (check with `python3 --version`)
 - **Node.js 20 or newer** (check with `node --version`)
-- **A Portkey API key.** The app calls its AI model through Portkey. Use the key that came with the submission (on Canvas),
-  or your own. Keys are never stored in this repository.
+- **A Portkey API key** (`PORTKEY_API_KEY`). The app calls its AI model through Portkey. If you have a `.env` with this key in the
+  folder that contains this repo, you are done. Otherwise put the key in a `.env` file as shown in step 2. Keys are never stored in this repository.
 - An internet connection (the AI and the web searches need it)
 
 ### 1. Get the code
@@ -48,7 +57,7 @@ python -m venv .venv
 copy .env.example .env
 ```
 
-Now open the new file named `.env` in a text editor and paste your key after `PORTKEY_API_KEY=` (no quotes, no spaces), then save:
+**Skip this paragraph if your `.env` is already in the folder above this repo.** Otherwise open the new file named `.env` in a text editor and paste your key after `PORTKEY_API_KEY=` (no quotes, no spaces), then save:
 
 ```
 PORTKEY_API_KEY=paste-your-key-here
