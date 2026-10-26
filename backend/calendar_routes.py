@@ -6,6 +6,7 @@ remembered, encrypted), or the user's saved link. The saved link is never sent b
 
 from __future__ import annotations
 
+from pathlib import Path
 from datetime import date, datetime, time, timedelta
 from typing import Literal
 from zoneinfo import ZoneInfo
@@ -22,8 +23,11 @@ from profile_routes import load_profile
 router = APIRouter(prefix="/api/calendar", tags=["calendar"])
 
 
+SAMPLE_ICS = Path(__file__).resolve().parent / "lib" / "calendar" / "sample.ics"
+
+
 class ReadBody(BaseModel):
-    source: Literal["file", "link", "saved"]
+    source: Literal["file", "link", "saved", "sample"]
     ics_text: str | None = Field(default=None, max_length=3_000_000)
     url: str | None = Field(default=None, max_length=2000)
     remember: bool = False
@@ -93,6 +97,8 @@ async def read_calendar(body: ReadBody, user: dict = Depends(current_user)) -> R
     try:
         if body.source == "file":
             text = body.ics_text or ""
+        elif body.source == "sample":
+            text = SAMPLE_ICS.read_text(encoding="utf-8")  # a made-up student week bundled with the app, so anyone can try it without a calendar
         else:
             if body.source == "saved":
                 with store.connect() as conn:

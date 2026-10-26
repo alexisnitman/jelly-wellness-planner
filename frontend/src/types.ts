@@ -54,7 +54,7 @@ export interface CalendarResult {
 }
 
 export interface CalendarRequest {
-  source: 'file' | 'link' | 'saved'
+  source: 'file' | 'link' | 'saved' | 'sample'
   ics_text?: string
   url?: string
   remember?: boolean

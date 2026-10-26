@@ -147,3 +147,4 @@ Backend SQLite (git-ignored): `users` (name, email, username, argon2id hash), `s
 - Rev 25 (Oct 26, 2026): the app is renamed from Week Planner to Jelly Wellness Planner (page title and header, API title, calendar file name and id, prompts, docs, README).
 - Rev 26 (Oct 26, 2026): README rewritten as step-by-step grader instructions; throwaway demo account script (`backend/scripts/create_demo_account.py`) and a sample calendar (`docs/sample-calendar.ics`, repeats weekly so it works for any week).
 - Rev 27 (Oct 26, 2026): the API key is read from a .env in the repo folder, then the folder above it; an empty value (such as a blank line copied from .env.example) never hides a real key. README states how the teaching staff's shared .env is picked up.
+- Rev 28 (Oct 26, 2026): a "Use a sample calendar" button in step 3 loads a bundled made-up student week (repeats weekly), so graders and new users can try the app without a calendar.

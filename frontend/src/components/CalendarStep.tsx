@@ -51,6 +51,11 @@ export default function CalendarStep({ result, onResult }: Props) {
       <h2>Add your calendar</h2>
       <p className="muted small">Read-only. The app finds your busy times and never changes your calendar. Event titles and details are not kept or sent anywhere. It reads the next {WEEKS_TO_READ} weeks so you can pick any of them.</p>
 
+      <div className="saved">
+        <p><strong>No calendar handy?</strong> Try a made-up student week (classes, a team meeting, a study group).</p>
+        <button className="primary" type="button" disabled={busy} onClick={() => run({ source: 'sample' })}>{busy ? 'Reading…' : 'Use a sample calendar'}</button>
+      </div>
+
       {link.saved && (
         <div className="saved">
           <p>Saved link from <strong>{link.host}</strong></p>

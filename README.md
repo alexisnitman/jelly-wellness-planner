@@ -77,7 +77,7 @@ This makes a throwaway account **on your computer only**:
 |----------|----------|
 | `demo` | `jelly-demo-2026` |
 
-Its profile is already filled in (awake 7:00 to 22:30, New Haven CT, student), so you can go straight to planning. If you would rather
+Its profile is already filled in (awake 7:00 to 22:30, New Haven CT, student), so you can go straight to planning. (It has no calendar saved: the app never stores calendars. In step 3 click **Use a sample calendar** to load one.) If you would rather
 make your own account, skip this step and use "Create an account" in the app; it takes a minute.
 
 ### 4. Start the backend
@@ -119,9 +119,10 @@ Approve, Export**. Your week's calendar is always on the right.
    walk-in, cuisine). Click **Next: a few more questions**.
 2. **Questions (step 2).** An AI agent writes 3 to 5 follow-up questions about your week. Answer any you like (you can skip them) and click
    **Continue to my calendar**.
-3. **Calendar (step 3).** Click **Upload a file** and choose [`docs/sample-calendar.ics`](docs/sample-calendar.ics) from this
-   repository. It is a made-up student week (classes, a team meeting, a study group). Its busy time appears as grey hatched blocks on the right.
-   (You can instead paste a private calendar link, or click *Skip my calendar* to plan around your waking hours only.)
+3. **Calendar (step 3).** Click **Use a sample calendar** (at the top of the step). It loads a made-up student week (classes, a team meeting, a
+   study group) that repeats every week, so it works whenever you try it. Its busy time appears as grey hatched blocks on the right.
+   You can also **Upload a file** (for example [`docs/sample-calendar.ics`](docs/sample-calendar.ics), the same sample, or your own `.ics`),
+   paste a private calendar link, or click *Skip my calendar* to plan around your waking hours only.
    The calendar opens on **next week** when this week is almost over; use the arrows to pick a week. Then click **Plan this week around my calendar**.
 4. **Plan (step 4).** Jelly swims while the plan is built (usually 20 to 60 seconds). Then look at:
    - the colored blocks on the calendar and the **"nothing overlaps your busy time"** check under it,
