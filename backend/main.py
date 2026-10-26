@@ -20,6 +20,7 @@ from fastapi.responses import JSONResponse
 
 import auth
 import calendar_routes
+import demo_account
 import interview_routes
 import plan_routes
 import profile_routes
@@ -29,6 +30,7 @@ from lib.llm import LIMITS, MODEL_NAME, ai_enabled
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5200,http://127.0.0.1:5200").split(",")
 
 store.init()
+demo_account.ensure_on_first_start()  # a fresh install gets a throwaway demo account (DEMO_ACCOUNT=false turns it off)
 
 
 app = FastAPI(title="Jelly Wellness Planner API", version="0.2.0")

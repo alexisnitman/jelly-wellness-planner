@@ -148,3 +148,4 @@ Backend SQLite (git-ignored): `users` (name, email, username, argon2id hash), `s
 - Rev 26 (Oct 26, 2026): README rewritten as step-by-step grader instructions; throwaway demo account script (`backend/scripts/create_demo_account.py`) and a sample calendar (`docs/sample-calendar.ics`, repeats weekly so it works for any week).
 - Rev 27 (Oct 26, 2026): the API key is read from a .env in the repo folder, then the folder above it; an empty value (such as a blank line copied from .env.example) never hides a real key. README states how the teaching staff's shared .env is picked up.
 - Rev 28 (Oct 26, 2026): a "Use a sample calendar" button in step 3 loads a bundled made-up student week (repeats weekly), so graders and new users can try the app without a calendar.
+- Rev 29 (Oct 26, 2026): the demo account is created automatically on the first start of a fresh install (never on an existing database; `DEMO_ACCOUNT=false` turns it off).

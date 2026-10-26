@@ -64,31 +64,28 @@ PORTKEY_API_KEY=paste-your-key-here
 AI_ENABLED=true
 ```
 
-### 3. Create the demo account (optional, saves you filling in the sign-up form)
+### 3. Demo account (nothing to do)
 
-```bash
-cd backend
-../.venv/bin/python scripts/create_demo_account.py        # Windows: ..\.venv\Scripts\python scripts\create_demo_account.py
-```
-
-This makes a throwaway account **on your computer only**:
+The first time the backend starts on a new copy, it creates a throwaway account **on your computer only**:
 
 | Username | Password |
 |----------|----------|
 | `demo` | `jelly-demo-2026` |
 
-Its profile is already filled in (awake 7:00 to 22:30, New Haven CT, student), so you can go straight to planning. (It has no calendar saved: the app never stores calendars. In step 3 click **Use a sample calendar** to load one.) If you would rather
-make your own account, skip this step and use "Create an account" in the app; it takes a minute.
+Its profile is already filled in (awake 7:00 to 22:30, New Haven CT, student), so you can go straight to planning. (It has no calendar saved:
+the app never stores calendars. In step 3 of the app, click **Use a sample calendar** to load one.) You can also use "Create an account"
+in the app to make your own. To reset the demo account, run `../.venv/bin/python scripts/create_demo_account.py` from the `backend` folder.
 
 ### 4. Start the backend
 
-Still inside the `backend` folder:
+From the project folder:
 
 ```bash
+cd backend
 ../.venv/bin/uvicorn main:app --port 8000                 # Windows: ..\.venv\Scripts\uvicorn main:app --port 8000
 ```
 
-Leave this terminal window open. You should see `Application startup complete`.
+Leave this terminal window open. You should see `Application startup complete`, and on the very first start a line with the demo login.
 
 ### 5. Start the frontend (in a second terminal window)
 
@@ -160,7 +157,7 @@ they come from a live AI model and live web pages.
 | "AI features are turned off" or "paused" | Check that `.env` has your `PORTKEY_API_KEY` and `AI_ENABLED=true`, then restart the backend. "Paused: spending limit reached" means the $1 daily cap was hit; it resets the next day. |
 | "The AI took too long to answer" | A slow moment on the AI side. Click the button again. |
 | The restaurant or movie list is short or says it "couldn't read" pages | Expected sometimes: many booking and showtime sites hide their times from automated readers, so the app gives you links instead of pretending. |
-| You forgot a password | Click **Forgot your password?** on the login page and enter the account's email. The app sends no email: the reset link is **printed in the terminal window where the backend is running**. Open that link in your browser (it works once, for 30 minutes). Or just run the demo script again to reset the demo account. |
+| You forgot a password | Click **Forgot your password?** on the login page and enter the account's email. The app sends no email: the reset link is **printed in the terminal window where the backend is running**. Open that link in your browser (it works once, for 30 minutes). Or reset the demo account with `scripts/create_demo_account.py`. |
 | Want a clean start | Stop the backend, delete the folder `backend/data`, and start it again. |
 
 ---
